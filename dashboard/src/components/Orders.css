@@ -1,0 +1,101 @@
+.orders {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+  color: #1f2937;
+}
+
+/* Empty state */
+.no-orders {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+}
+
+.no-orders p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #475569;
+}
+
+.no-orders .btn {
+  padding: 10px 20px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.no-orders .btn:hover {
+  background: #1e40af;
+}
+
+/* Orders List */
+.order-list h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Card container */
+.order-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Single Order Card */
+.order-list li {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  flex: 1 1 220px; /* responsive width */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Fields inside card */
+.order-list li p {
+  margin: 8px 0;
+  font-size: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e5e7eb; /* line between fields */
+}
+
+.order-list li p:last-child {
+  border-bottom: none;
+}
+
+.order-list li p strong {
+  color: #1f2937;
+}
+
+/* Price highlight */
+.order-list li p:nth-child(3) {
+  font-weight: 600;
+  color: #16a34a; /* green for price */
+}
+
+/* Mode badge */
+.order-list li p:nth-child(4) {
+  display: inline-block;
+  background: #f3f4f6;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #1f2937;
+}

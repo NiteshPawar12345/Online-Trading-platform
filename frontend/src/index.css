@@ -1,10 +1,10 @@
-:root {
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: black;
   background-color: white;
 
   font-synthesis: none;
@@ -65,4 +65,37 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+
+.nav-link {
+  margin-left: 40px;
+}
+.link {
+  text-decoration: none;
+  
+}
+
+#supportHero{
+  background-color: rgb(56, 126, 209);
+  color: white;
+}
+
+#supportHero a{
+  color: white;
+  margin-right: 20px;
+}
+
+#supportWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 150px;
+}
+
+#supportHero input{
+  padding: 20px 50px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
 }
