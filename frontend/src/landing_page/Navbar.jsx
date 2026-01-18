@@ -7,7 +7,7 @@ function Navbar() {
 
     const handleDashboardClick = (e) => {
         e.preventDefault();
-        window.location.href = "http://localhost:5174/";
+        window.location.href = "  http://localhost:5174/";
     };
 
     return (

@@ -38,8 +38,18 @@ app.post("/newOrder", async (req, res) => {
       price: req.body.price,
       mode: req.body.mode,
     });
+   
+
 
     let savedOrder = await newOrder.save();
+
+     const qty = Number(savedOrder.qty);
+     const price = Number(savedOrder.price);
+     const calculatedNet = qty * price;
+
+     console.log("QTY:", qty);
+     console.log("PRICE:", price);
+     console.log("QTY * PRICE:", calculatedNet);
 
    
     let newPosition = new PositionsModel({
@@ -48,12 +58,15 @@ app.post("/newOrder", async (req, res) => {
       qty: savedOrder.qty,
       avg: savedOrder.price,           
       price: savedOrder.price,
-      net: (savedOrder.qty * savedOrder.price).toFixed(2),
+      // net: (savedOrder.qty * savedOrder.price).toFixed(2),
+      net: (Number(savedOrder.qty) * Number(savedOrder.price)).toFixed(2),
+
       day: new Date().toISOString().split("T")[0],         
       isLoss: false                    
     });
 
     await newPosition.save();
+    console.log(newPosition)
 
     res.status(200).send("Order saved and reflected in positions");
   } catch (err) {
@@ -90,11 +103,13 @@ app.post("/api/orders/sell", async (req, res) => {
 app.get("/orders", async (req, res) => {
   try {
     let orders = await OrdersModel.find();
+    
     res.json(orders);
   } catch (err) {
     res.status(500).send("Error fetching orders");
   }
 });
+
 
 app.listen(PORT, () => {
     console.log("App is listening")

@@ -5,6 +5,7 @@ import "./Orders.css";
 const Orders = () => {
   const [orders, setOrders] = useState([]);
 
+
   useEffect(() => {
     fetch("http://localhost:3002/orders") 
       .then((res) => res.json())
@@ -23,7 +24,7 @@ const Orders = () => {
         </div>
       ) : (
         <div className="order-list">
-          <h2>Your Orders</h2>
+          <h2>Your Orders ({orders.length})</h2>
           <ul>
             {orders.map((order, index) => (
               <li key={index}>

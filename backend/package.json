@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+ 
   "scripts": {
-    "start": "nodemon index.js"
-  },
+  "dev": "nodemon index.js",
+  "start": "node index.js"
+},
   "author": "\"Nitesh\"",
   "license": "ISC",
   "devDependencies": {
@@ -22,3 +24,6 @@
     "passport-local-mongoose": "^8.0.0"
   }
 }
+
+
+

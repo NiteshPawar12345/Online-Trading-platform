@@ -72,7 +72,7 @@ const Menu = () => {
             style={{ cursor: "pointer" }}
             onClick={() => {
               handleMenuClick(7);
-              window.location.href = "http://localhost:5173/";
+              window.location.href = "  http://localhost:5173/";
             }}
           >
             <p className={selectedMenu === 7 ? activeMenuClass : menuClass}>

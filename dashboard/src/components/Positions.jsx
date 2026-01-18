@@ -49,9 +49,12 @@ const Positions = () => {
                   <td>{stock.name}</td>
                   <td>{stock.avg.toFixed(2)}</td>
                   <td>{stock.price.toFixed(2)}</td>
-                  <td className={profitClass}>
+                  {/* <td className={profitClass}>
                     {(CurrValue - stock.avg * stock.qty).toFixed(2)}
-                  </td>
+                  </td> */}
+                  <td>{Number(stock.net).toFixed(2)}</td>
+
+
                   <td className={dayClass}>{stock.day}</td>
                   <td>
                     <button

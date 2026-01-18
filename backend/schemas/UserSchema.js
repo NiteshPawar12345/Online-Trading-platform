@@ -9,15 +9,15 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true, // ek hi email bar-bar use na ho
+    unique: true, 
     lowercase: true
   },
   password: {
     type: String,
     required: true,
-    minlength: 6 // password ki minimum length
+    minlength: 6 
   }
-}, { timestamps: true }); // createdAt, updatedAt auto add ho jayenge
+}, { timestamps: true }); 
 
 const UserModel = mongoose.model("User", userSchema);
 
