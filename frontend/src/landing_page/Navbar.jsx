@@ -7,7 +7,7 @@ function Navbar() {
 
     const handleDashboardClick = (e) => {
         e.preventDefault();
-        window.location.href = " http://localhost:5174/";
+        window.location.href = " https://online-trading-platform-teal.vercel.app/";
     };
 
     return (
