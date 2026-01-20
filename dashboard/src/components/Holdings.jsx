@@ -99,7 +99,7 @@
 
 
 import React, { useState, useEffect } from "react";
-import API from "../api"; 
+import API from "../api";
 import { VerticalGraph } from "./VerticalGraph";
 
 const Holdings = () => {
