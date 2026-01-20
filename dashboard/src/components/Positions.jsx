@@ -8,7 +8,7 @@ const Positions = () => {
   const [selectedStock, setSelectedStock] = useState(null); // Track which stock to sell
 
   useEffect(() => {
-    API.get("http://localhost:3002/allPostions").then((res) => {
+    API.get("/allPostions").then((res) => {
       console.log(res.data);
       setAllPostions(res.data);
     });
