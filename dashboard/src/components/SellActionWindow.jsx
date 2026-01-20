@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
 import axios from "axios";
+import API from "../api";
 
 const SellActionWindow = ({ uid, qty, price, onClose, onSellSuccess }) => {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ const SellActionWindow = ({ uid, qty, price, onClose, onSellSuccess }) => {
   const handleSell = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3002/api/orders/sell", {
+      const response = await API.post("/api/orders/sell", {
         stock: uid,
         qty,
         price,

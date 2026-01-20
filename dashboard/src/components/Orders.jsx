@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Orders.css";
+import API from "../api";
+import axios from "axios";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
 
 
-  useEffect(() => {
-    fetch("http://localhost:3002/orders") 
-      .then((res) => res.json())
-      .then((data) => setOrders(data))
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   API.get("/orders") 
+  //     .then((res) => res.json())
+  //     .then((data) => setOrders(data))
+  //     .catch((err) => console.log(err));
+  // }, []);
+
+     useEffect(() => {
+      API.get("/orders")
+      .then((res) => setOrders(res.data))
+     },[])
 
   return (
     <div className="orders">

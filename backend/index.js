@@ -25,12 +25,14 @@ app.get("/allHoldings", async(req, res) => {
 });
 
 app.get("/allPostions", async(req, res) => {
+  
     let allPostions = await PositionsModel.find({});
     res.json(allPostions);
 })
 
 app.post("/newOrder", async (req, res) => {
   try {
+    
     
     let newOrder = new OrdersModel({
       name: req.body.name,

@@ -3,6 +3,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import API from "../api";
 
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";
@@ -13,15 +14,18 @@ const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setstockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
 
-  const handleBuyClick = () => {
-    axios.post("http://localhost:3002/newOrder", {
+  const handleBuyClick = async() => {
+    let result = await API.post("/newOrder", {
     name: uid,
     qty: stockQuantity,
     price: stockPrice,
     mode: "BUY",
     });
+  
      GeneralContext.closeBuyWindow();
   };
+
+  
 
   const handleCancelClick = () => {
     closeBuyWindow();
@@ -58,3 +62,4 @@ const BuyActionWindow = ({ uid }) => {
 };
 
 export default BuyActionWindow;
+
