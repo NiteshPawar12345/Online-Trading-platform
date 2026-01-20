@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SellActionWindow from "./SellActionWindow"; // Import the popup
+import API from "../api";
 
 const Positions = () => {
   const [allPostions, setAllPostions] = useState([]);
   const [selectedStock, setSelectedStock] = useState(null); // Track which stock to sell
 
   useEffect(() => {
-    axios.get("http://localhost:3002/allPostions").then((res) => {
+    API.get("http://localhost:3002/allPostions").then((res) => {
       console.log(res.data);
       setAllPostions(res.data);
     });
