@@ -14,6 +14,7 @@ const SellActionWindow = ({ uid, qty, price, onClose, onSellSuccess }) => {
         qty,
         price,
       });
+      console.log(response)
 
       console.log("Sell order response:", response.data);
 

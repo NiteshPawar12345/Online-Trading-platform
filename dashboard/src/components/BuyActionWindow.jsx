@@ -21,9 +21,15 @@ const BuyActionWindow = ({ uid }) => {
     price: stockPrice,
     mode: "BUY",
     });
-  
-     GeneralContext.closeBuyWindow();
+
+    console.log(result)
+    console.log("closw widow call")
+    
+   closeBuyWindow();
+   console.log("call complete")
+    
   };
+
 
   
 

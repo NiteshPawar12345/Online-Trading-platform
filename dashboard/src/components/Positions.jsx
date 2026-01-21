@@ -15,6 +15,7 @@ const Positions = () => {
   }, []);
 
   const handleSellSuccess = (uid) => {
+    
     setAllPostions((prev) => prev.filter((stock) => stock.name !== uid));
   };
 
