@@ -1,28 +1,3 @@
-// import React from 'react';
-
-
-// function RightSection({ProductName, productDescription, learnMore, imageURL}) {
-//     return ( 
-//         <div className='container'>
-//             <div className='row'>
-//                 <div className='col-6'>
-//                 <h1>{ProductName}</h1>
-//                 <p>{productDescription}</p>
-//                 <a href={learnMore}>Learn More</a>
-
-//             </div>
-//             <div className='col-6'>
-//                 <img src={imageURL} />
-//             </div>
-//             </div>
-//         </div>
-//      );
-// }
-
-// export default RightSection;
-
-
-
 
 import React from "react";
 
@@ -46,3 +21,5 @@ function RightSection({ imageURL, productName, productDescription, learnMore }) 
 }
 
 export default RightSection;
+
+
