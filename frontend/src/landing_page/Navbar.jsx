@@ -7,7 +7,7 @@ function Navbar() {
 
     const handleDashboardClick = (e) => {
         e.preventDefault();
-        window.location.href = " https://online-trading-platform-teal.vercel.app/";
+        window.location.href = "https://online-trading-platform-2bwifxe9q-niteshpawar12345s-projects.vercel.app/";
     };
 
     return (
