@@ -69,3 +69,6 @@ const BuyActionWindow = ({ uid }) => {
 
 export default BuyActionWindow;
 
+
+
+

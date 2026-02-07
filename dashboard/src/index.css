@@ -843,3 +843,100 @@ hr {
 }
 
 
+
+
+
+
+/* =========================
+   MOBILE RESPONSIVE ONLY
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* main dashboard layout */
+  .dashboard-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* content area full width */
+  .content {
+    flex-basis: 100%;
+    height: auto;
+    padding: 16px;
+  }
+
+  /* watchlist full width */
+  .watchlist-container {
+    flex-basis: 100%;
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  /* fixed watchlist number bar issue */
+  .watchlist-number {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-top: 1px solid rgb(231, 231, 231);
+  }
+
+  /* topbar stacking */
+  .topbar-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .indices-container {
+    flex-basis: 100%;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgb(224, 224, 224);
+  }
+
+  .menu-container {
+    flex-basis: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* rows become column */
+  .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .col {
+    flex-basis: 100%;
+  }
+
+  /* funds buttons stack */
+  .funds {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  /* tables scrollable */
+  .order-table {
+    overflow-x: auto;
+  }
+
+  .order-table table {
+    min-width: 600px;
+  }
+
+  /* search bar fix */
+  .search {
+    height: auto;
+    font-size: 0.85rem;
+  }
+}
