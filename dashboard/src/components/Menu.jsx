@@ -73,7 +73,7 @@ const Menu = () => {
             onClick={() => {
               handleMenuClick(7);    
               // window.location.href = "https://online-trading-platform-frontend.vercel.app/";
-              window.location.href = "  http://localhost:5173/"
+              window.location.href = "https://online-trading-platform-tau.vercel.app/"
             }}
           >
             <p className={selectedMenu === 7 ? activeMenuClass : menuClass}>
