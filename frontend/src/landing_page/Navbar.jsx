@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
 
-    const handleDashboardClick = (e) => {
+    const handleDashboardClick = (e) => {   
         e.preventDefault();
-        window.location.href = "https://online-trading-platform-teal.vercel.app/";
+        // window.location.href = "https://online-trading-platform-teal.vercel.app/";
+        window.location.href = "http://localhost:5174/"
         
     };
 
