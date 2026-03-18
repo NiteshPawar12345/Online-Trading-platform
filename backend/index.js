@@ -19,10 +19,45 @@ const JWT_SECRET = process.env.JWT_SECRET || "default_secret";
 
 const app = express();
 
+
+// app.use(cors({
+//   origin: ["http://localhost:5173", "http://localhost:5174", "https://online-trading-platform-9gdl.onrender.com", "https://online-trading-platform-lk5n.vercel.app"],
+//   credentials: true,
+// }));
+
+
+// app.use(cors({
+//   origin: [
+//     "http://localhost:5173",
+//     "http://localhost:5174",
+//     "https://online-trading-platform-lk5n.vercel.app"
+//   ],
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"]
+// }));
+
+
+// app.use(cors({
+//   origin: [
+//     "http://localhost:5173",
+//     "http://localhost:5174",
+//     "https://online-trading-platform-lk5n.vercel.app",
+//     "https://online-trading-platform-9gdl.onrender.com" // 👈 add this
+//   ],
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"]
+// }));
+
+
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174"],
-  credentials: true,
+  origin: true,
+  credentials: true
 }));
+
+// app.options("*", cors());
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 

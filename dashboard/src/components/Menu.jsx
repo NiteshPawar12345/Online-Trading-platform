@@ -78,7 +78,7 @@ const Menu = () => {
           >
             <p className={selectedMenu === 7 ? activeMenuClass : menuClass}>
               Landing-Page
-            </p>
+            </p>x
           </li>
         </ul>
         <hr />

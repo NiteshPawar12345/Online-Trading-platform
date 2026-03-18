@@ -9,31 +9,15 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
 
-  // useEffect(() => {
-  //   API.get("/orders") 
-  //     .then((res) => res.json())
-  //     .then((data) => setOrders(data))
-  //     .catch((err) => console.log(err));
-  // }, []);
+ 
 
      useEffect(() => {
       API.get("/orders")
       .then((res) => setOrders(res.data))
+      .then((res) => console.log(res.data))
      },[]);
 
-    // useEffect(() => {
-    //   const fetchData = async() => {
-    //     try{
-    //       let result = await axios.get("http://localhost:3002/orders")
-    //       .then((res) => setOrders(res.data))
-    //       .then((res) => console.log(res.data)
-    //       )
-    //     }catch(err) {
-    //       console.log(err)
-    //     }
-    //   }
-    //   fetchData();
-    // }, [])
+   
 
   return (
     <div className="orders">
