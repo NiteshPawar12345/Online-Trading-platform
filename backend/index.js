@@ -170,7 +170,8 @@ app.post("/signup", async (req, res) => {
     await newUser.save();
 
     const token = jwt.sign({ id: newUser._id }, JWT_SECRET, { expiresIn: "1d" });
-    res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "none" });
+    const isProd = process.env.NODE_ENV === "production";
+    res.cookie("token", token, { httpOnly: true, secure: isProd, sameSite: isProd ? "none" : "lax", maxAge: 24 * 60 * 60 * 1000 });
 
     res.status(201).json({ message: "User created successfully" });
   } catch (err) {
@@ -191,7 +192,8 @@ app.post("/login", async (req, res) => {
     if (!isMatch) return res.status(400).json({ error: "Invalid credentials" });
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1d" });
-    res.cookie("token", token, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "none" });
+    const isProd = process.env.NODE_ENV === "production";
+    res.cookie("token", token, { httpOnly: true, secure: isProd, sameSite: isProd ? "none" : "lax", maxAge: 24 * 60 * 60 * 1000 });
 
     res.status(200).json({ message: "Logged in successfully" });
   } catch (err) {
@@ -201,19 +203,27 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/logout", (req, res) => {
-  res.clearCookie("token", { secure: process.env.NODE_ENV === "production", sameSite: "none" });
+  const isProd = process.env.NODE_ENV === "production";
+  res.clearCookie("token", { secure: isProd, sameSite: isProd ? "none" : "lax" });
   res.status(200).json({ message: "Logged out successfully" });
 });
 
-app.get("/auth/status", (req, res) => {
+app.get("/auth/status", async (req, res) => {
   const token = req.cookies.token;
   if (!token) return res.status(401).json({ isAuthenticated: false });
 
   try {
-    jwt.verify(token, JWT_SECRET);
-    res.status(200).json({ isAuthenticated: true });
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const user = await UserModel.findById(decoded.id);
+    if (!user) return res.status(401).json({ isAuthenticated: false });
+
+    res.status(200).json({ 
+      isAuthenticated: true, 
+      user: { name: user.name, email: user.email } 
+    });
   } catch (err) {
-    res.clearCookie("token", { secure: process.env.NODE_ENV === "production", sameSite: "none" });
+    const isProd = process.env.NODE_ENV === "production";
+    res.clearCookie("token", { secure: isProd, sameSite: isProd ? "none" : "lax" });
     res.status(401).json({ isAuthenticated: false });
   }
 });

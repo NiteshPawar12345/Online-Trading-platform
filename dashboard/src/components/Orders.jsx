@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Orders.css";
 import API from "../api";
 import axios from "axios";
+import GeneralContext from "./GeneralContext";
 
 
 const Orders = () => {
@@ -11,11 +12,13 @@ const Orders = () => {
 
  
 
-     useEffect(() => {
-      API.get("/orders")
+  const { refreshFlag } = React.useContext(GeneralContext);
+
+  useEffect(() => {
+    API.get("/orders")
       .then((res) => setOrders(res.data))
-      .then((res) => console.log(res.data))
-     },[]);
+      .catch((err) => console.log(err));
+  }, [refreshFlag]);
 
    
 

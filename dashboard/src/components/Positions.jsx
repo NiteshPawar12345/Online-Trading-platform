@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import SellActionWindow from "./SellActionWindow"; // Import the popup
 import API from "../api";
-
+import GeneralContext from "./GeneralContext";
 const Positions = () => {
   const [allPostions, setAllPostions] = useState([]);
   const [selectedStock, setSelectedStock] = useState(null); // Track which stock to sell
+
+  const { refreshFlag } = useContext(GeneralContext);
 
   useEffect(() => {
     API.get("/allPostions").then((res) => {
       console.log(res.data);
       setAllPostions(res.data);
     });
-  }, []);
+  }, [refreshFlag]);
 
   const handleSellSuccess = (uid) => {
     

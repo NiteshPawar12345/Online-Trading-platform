@@ -1,10 +1,12 @@
-
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import GeneralContext from "./GeneralContext";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
+  const { user } = useContext(GeneralContext);
 
   const handleMenuClick = (index) => {
     setSelectedMenu(index);
@@ -83,8 +85,10 @@ const Menu = () => {
         </ul>
         <hr />
         <div className="profile" onClick={handleProfileClick}>
-          <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+          <div className="avatar">
+            {user && user.name ? user.name.substring(0, 2).toUpperCase() : "ZU"}
+          </div>
+          <p className="username">{user && user.name ? user.name : "USERID"}</p>
         </div>
       </div>
     </div>
